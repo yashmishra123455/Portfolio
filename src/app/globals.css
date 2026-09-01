@@ -1,0 +1,200 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer base {
+  :root {
+    --bg-primary: #050816;
+    --text-primary: #ffffff;
+    --text-secondary: #9ca3af;
+  }
+
+  .light {
+    --bg-primary: #f8fafc;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  ::selection {
+    background: rgba(59, 130, 246, 0.4);
+    color: #ffffff;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050816;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(6, 182, 212, 0.6);
+}
+
+/* Glassmorphism & HUD Utility Classes */
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card:hover {
+  border-color: rgba(6, 182, 212, 0.4);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.glass-hud {
+  background: rgba(10, 16, 38, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 0 15px rgba(6, 182, 212, 0.08);
+}
+
+.glass-hud:hover {
+  border-color: rgba(6, 182, 212, 0.5);
+  box-shadow: 0 12px 40px 0 rgba(6, 182, 212, 0.25), inset 0 0 25px rgba(59, 130, 246, 0.15);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Gradient Text - Specifically for Name Yash Mishra */
+.gradient-name-text {
+  background: linear-gradient(135deg, #60A5FA 0%, #38BDF8 35%, #818CF8 70%, #C084FC 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 6s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #3B82F6 0%, #06B6D4 50%, #8B5CF6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Glowing Aura & Bloom */
+.glow-aurora {
+  position: absolute;
+  filter: blur(90px);
+  opacity: 0.35;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glow-blue {
+  box-shadow: 0 0 35px rgba(59, 130, 246, 0.45);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 35px rgba(6, 182, 212, 0.45);
+}
+
+.glow-purple {
+  box-shadow: 0 0 35px rgba(139, 92, 246, 0.45);
+}
+
+/* Animated Grid Background */
+.bg-grid-cyber {
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(59, 130, 246, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(59, 130, 246, 0.07) 1px, transparent 1px);
+}
+
+.bg-dot-pattern {
+  background-image: radial-gradient(rgba(6, 182, 212, 0.15) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Custom Keyframe Animations */
+@keyframes pulse-slow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 0.6;
+  }
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(1000%);
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(1.5deg);
+  }
+}
+
+@keyframes orbit-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 7s infinite ease-in-out;
+}
+
+.animate-scanline {
+  animation: scanline 8s linear infinite;
+}
+
+.animate-float {
+  animation: float-slow 5s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: orbit-rotate 25s linear infinite;
+}
+
+.animate-spin-reverse-slow {
+  animation: orbit-rotate 35s linear infinite reverse;
+}
+
